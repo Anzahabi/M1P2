@@ -8,8 +8,8 @@ import pickle
 app = Flask(__name__)
 
 # Load the Model
-pipeline = pickle.load(open('pipeline.pkl','rb'))
-model = tf.keras.models.load_model('model.h5')
+pipeline = pickle.load(open('pipe.pkl','rb'))
+model = tf.keras.models.load_model('sequen.h5')
 
 # Endpoint for Homepage
 @app.route("/")
@@ -20,25 +20,13 @@ def home():
 @app.route("/predict", methods=['POST'])
 def model_predict():
     args = request.json
-    new_data = {'gender': args.get('gender'),
-    'SeniorCitizen': args.get('SeniorCitizen'),
-    'Partner': args.get('Partner'),
-    'Dependents': args.get('Dependents'),
+    new_data = {
     'tenure': args.get('tenure'),
-    'PhoneService': args.get('PhoneService'),
-    'MultipleLines': args.get('MultipleLines'),
-    'InternetService': args.get('InternetService'),
-    'OnlineSecurity': args.get('OnlineSecurity'),
-    'OnlineBackup': args.get('OnlineBackup'),
-    'DeviceProtection': args.get('DeviceProtection'),
-    'TechSupport': args.get('TechSupport'),
-    'StreamingTV': args.get('StreamingTV'),
-    'StreamingMovies': args.get('StreamingMovies'),
-    'Contract': args.get('Contract'),
-    'PaperlessBilling': args.get('PaperlessBilling'),
-    'PaymentMethod': args.get('PaymentMethod'),
+    'TotalCharges': args.get('TotalCharges'),
     'MonthlyCharges': args.get('MonthlyCharges'),
-    'TotalCharges': args.get('TotalCharges')}
+    'Contract': args.get('Contract'),
+    'PaymentMethod': args.get('PaymentMethod'),
+    'InternetService': args.get('InternetService')}
 
     new_data = pd.DataFrame([new_data])
     print('New Data : ', new_data)
