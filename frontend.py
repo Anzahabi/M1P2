@@ -6,10 +6,7 @@ st.title('Prediction Churn of Customer')
 
 # Create Submit Form
 with st.form(key='form_parameters'):
-  
-      
-    
-    
+    t = st.number_input('Tenure', min_value=0, step=1, max_value=73)
     tc = st.number_input('TotalCharges', min_value=18.8, step=0.02,max_value=8684.8)
     mc = st.number_input('MonthlyCharges', min_value=18.25, step=0.05,max_value=118.75)
     con = st.sidebar.selectbox(label='Contract', options=['Month-to-month','One year','Two year'])
