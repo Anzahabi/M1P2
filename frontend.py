@@ -17,7 +17,7 @@ with st.form(key='form_parameters'):
 
 # inference
 if submitted:
-    URL = 'https://churn-fadhilsadeli.koyeb.app/predict'
+    URL = 'https://m1p2-anzahabi.koyeb.app/predict'
     param = {'gender': g,
     'SeniorCitizen': s,
     'Partner': p,
